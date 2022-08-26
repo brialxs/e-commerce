@@ -1,4 +1,6 @@
-const cars = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+// const cars = "https://japceibal.github.io/emercado-api/cats_products/101.json"; <- DE LA ENTREGA 1, YA NO SE UN FUNCIONAL PERO ME SIRVIO PARA CONSEGUIR LA PARTE 2 DE LA ENTREGA 2
+
+const produc = PRODUCTS_URL + localStorage.getItem("catID") + EXT_TYPE;
 
 const container = document.getElementById("products");
 
@@ -24,7 +26,7 @@ function showData(dataArray) {
   }
 }
 
-fetch(cars)
+fetch(produc)
 .then (function(response) {
   return response.json();
 })
@@ -32,3 +34,8 @@ fetch(cars)
   console.log(data.products);
   showData(data.products);
 });
+
+function setCatID(id) {
+  localStorage.setItem("catID", id);
+  window.location = "products.html"
+};

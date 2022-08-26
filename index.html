@@ -23,17 +23,27 @@
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
       </div> -->
 
-      <form method="post" onclick="main.html" >
-        <label for="email" required>Email:</label>
-        <input id="email" name="nombre" type="text" placeholder="ejemplo@ejemplo.com"  required>
+      <!-- <form method="post"> -->
+    <div>
+      <div>  
+        <label for="email">Email:</label>
+        <input id="email" class="from-control" type="text" placeholder="ejemplo@ejemplo.com" required>
+        <p id="paragraphh"></p>
+      </div>  
         <br>
         <br>
-        <label for="password" required>Contraseña:</label>
-        <input id="password" type="password" name="passowrd" placeholder="Pon tu contraseña aqui" required>
+      <div>  
+        <label for="password">Contraseña:</label>
+        <input id="password1" type="password" class="from-control" placeholder="Pon tu contraseña aqui" required>
+        <p id="paragraphh2"></p>
+      </div>  
         <br>
         <br>
-        <input id="login" name="Ingresar" type="submit" value="Ingresar"></input>
-    </form>
+        <div class="container buttom">
+          <button class="btn btn-primary" type="submit" id="loginButton">Ingresar</button>
+          </div>
+    </div>      
+    <!-- </form> -->
     </div>
   </main>
   <footer class="text-muted">
@@ -46,7 +56,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
