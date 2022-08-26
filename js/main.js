@@ -13,5 +13,6 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-const containerUser = document.getElementById("containerUser");
-containerUser.innerHTML = (localStorage.getItem("user"));
+const Usuario = document.getElementById('Usuario');
+
+Usuario.innerHTML = (localStorage.getItem("user"));
