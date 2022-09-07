@@ -77,9 +77,9 @@ function sortCategories(criteria, array){
     return result;
 }
 
-function setCatID(id) {
-    localStorage.setItem("catID", id);
-    window.location = "products.html"
+function setProductID(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html"
 }
 
 function showCategoriesList(){
@@ -92,7 +92,7 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.soldCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProductID(${category.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
@@ -183,3 +183,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+
+
