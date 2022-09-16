@@ -2,6 +2,7 @@ const INFO_PRODUCT =  PRODUCT_INFO_URL + localStorage.getItem("productID") + EXT
 const containerInfo = document.getElementById("infoContainer");
 const comments = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("productID") + EXT_TYPE;
 const comentarios = document.getElementById("comentarios");
+const stars = document.getElementById("stars");
 
 console.log(INFO_PRODUCT);
 
@@ -33,9 +34,7 @@ document.addEventListener("DOMContentLoaded", function(p) {
   });
 });
 
-function addStar() {
-  document.showCategoriesList.score.innerHTML = ` <span class="fa fa-star"></span> `
-}
+
 
 function showCategoriesList(){
 
@@ -44,15 +43,24 @@ function showCategoriesList(){
       let comentario = infoComments[i];
           htmlContentToAppend += `
           <div onclick="comentarioID(${comentario.product})" class="list-group-item list-group-item-action cursor-active"  >
-            <div class="col-3">
-              <label id="score"><strong>${comentario.user}</strong> - ${comentario.dateTime} - </label>
+            <div class="col">
+              <label id="score"><strong>${comentario.user}</strong> - ${comentario.dateTime} -  `
+              for(let i = 0; i < 5; i++){
+                if (i < comentario.score){
+                  htmlContentToAppend += `<span class="fa fa-star checked"></span>`
+                } else {
+                  htmlContentToAppend += `<span class="fa fa-star"></span>`
+                }
+              };
+              htmlContentToAppend+=
+              ` </label> 
               <p>${comentario.description} </p>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="stretched-link"></a>
-            </div> 
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="stretched-link" target="_blank"></a>
+            </div>
           </div>
           `
       }
-
+      
       comentarios.innerHTML = htmlContentToAppend;
   };
 
