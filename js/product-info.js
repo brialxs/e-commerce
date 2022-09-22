@@ -3,6 +3,7 @@ const containerInfo = document.getElementById("infoContainer");
 const comments = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("productID") + EXT_TYPE;
 const comentarios = document.getElementById("comentarios");
 const stars = document.getElementById("stars");
+const related_Products = document.getElementById("related_products");
 
 console.log(INFO_PRODUCT);
 
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function(p) {
         if (resultObj.status === "ok"){
             infoProducts = resultObj.data
             showProductInfo(infoProducts)
+            showRelatedProducts(infoProducts)
+            console.log(infoProducts)
             //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }   
     });
@@ -123,12 +126,61 @@ function showProductInfo(){
                 </div>
 
                 <label>Comentarios</label>
-
                 </div>
-              </div>
+              </div>   
             `
         
 
         containerInfo.innerHTML = htmlContentToAppend;
     
 }
+
+function showRelatedProducts() {
+
+  let relacionados = "";
+
+    let p = infoProducts;
+
+    relacionados += `
+    <br>
+    <br>
+    <br>
+    <center><h5>Productos Relacionados</h5></center>
+    <div id="carouselExampleCaptions" class="carousel slide w-50 mx-auto" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href=""><img src="${p.relatedProducts[0].image}" class="d-block w-100" alt="..."></a>
+      <div class="">
+        <h5>${p.relatedProducts[0].name}</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <a href=""><img src="${p.relatedProducts[1].image}" class="d-block w-100" alt="..."></a>
+      <div class="">
+        <h5>${p.relatedProducts[1].name}</h5>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+      `
+
+      related_Products.innerHTML = relacionados;
+}
+
+// function setProductID(id) {
+//   localStorage.setItem("productID", id);
+//   window.location = "product-info.html"
+// }
+
