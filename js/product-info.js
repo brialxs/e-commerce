@@ -152,13 +152,13 @@ function showRelatedProducts() {
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div onclick="setProductID(${p.relatedProducts[0].id})" class="carousel-item active">
       <a href=""><img src="${p.relatedProducts[0].image}" class="d-block w-100" alt="..."></a>
       <div class="">
         <h5>${p.relatedProducts[0].name}</h5>
       </div>
     </div>
-    <div class="carousel-item">
+    <div onclick="setProductID(${p.relatedProducts[1].id})" class="carousel-item">
       <a href=""><img src="${p.relatedProducts[1].image}" class="d-block w-100" alt="..."></a>
       <div class="">
         <h5>${p.relatedProducts[1].name}</h5>
@@ -179,8 +179,9 @@ function showRelatedProducts() {
       related_Products.innerHTML = relacionados;
 }
 
-// function setProductID(id) {
-//   localStorage.setItem("productID", id);
-//   window.location = "product-info.html"
-// }
+function setProductID(id) {
+  localStorage.setItem("productID", id);
+  window.location = "product-info.html"
+}
+
 
