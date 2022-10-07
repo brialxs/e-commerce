@@ -3,19 +3,16 @@ const bodyTable = document.getElementById("bodyTable");
 
 document.addEventListener("DOMContentLoaded", function(p) {
     
-    getJSONData(CART_BUY).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            cart = resultObj.data
-            showCart()
-        }   
+    fetch(CART_BUY)           //api for the get request
+    .then(response => response.json())
+    .then(data => console.log(data));
     });
-});
 
 
 
 function showCart (){
 
-    let { id, name, count, unitCost, currency, image } = CART_BUY;
+    // let { id, name, count, unitCost, currency, image } = data;
 
     let addCart = "";
     for (let cart of CART_BUY) {
@@ -37,3 +34,4 @@ function showCart (){
 
 };
 
+showCart();
