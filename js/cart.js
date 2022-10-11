@@ -15,19 +15,29 @@ document.addEventListener("DOMContentLoaded", function(p) {
 function showCart(){
 
     for(let item of articles){
-        document.getElementById("cart1").innerHTML = `<div class="container"
-        <img scr="${item.image}">
+        const cart1 = document.getElementById("cart1");
+        const cart2 = document.getElementById("cart2"); 
+        const cart3 = document.getElementById("cart3");
+        const cart4 = document.getElementById("cart4");
+
+
+        cart1.innerHTML = `<div class="container">
+        <img class="img-responsive" src="${item.image}">
         <div>
         `
-        document.getElementById("cart2").innerHTML = `
+        cart2.innerHTML = `
         <p>${item.name}</p>
         `
-        document.getElementById("cart3").innerHTML = `
+        cart3.innerHTML = `
         <p>${item.currency} ${item.unitCost}</p>
         `
-        document.getElementById("cart4").innerHTML = `
-        <p>${item.count}</p>
+        cart4.innerHTML = `
+        <input oninput="${item.count}" type="number" value="${item.count}">
         `
         }
     };
   
+
+    function subtotal() {
+
+    }
