@@ -6,21 +6,27 @@ document.addEventListener("DOMContentLoaded", function(p) {
     getJSONData(CART_BUY).then(function(resultObj){
         if (resultObj.status === "ok"){
             articles = resultObj.data.articles
-            showCategoriesList(articles)
-            console.log(articles)
+            showCart(articles)
+            console.log(pepe)
         }   
     });
 });
 
-function showCategoriesList(){
+function showCart(){
 
-    for(let articles of CART_BUY){
+    for(let item of articles){
         document.getElementById("cart1").innerHTML = `<div class="container"
-        <p>${articles.id}</p>
+        <img scr="${item.image}">
         <div>
         `
         document.getElementById("cart2").innerHTML = `
-        <p>${articles.name}</p>
+        <p>${item.name}</p>
+        `
+        document.getElementById("cart3").innerHTML = `
+        <p>${item.currency} ${item.unitCost}</p>
+        `
+        document.getElementById("cart4").innerHTML = `
+        <p>${item.count}</p>
         `
         }
     };
