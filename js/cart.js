@@ -2,36 +2,26 @@ const CART_BUY = CART_INFO_URL + "25801" + EXT_TYPE;
 const bodyTable = document.getElementById("bodyTable");
 
 document.addEventListener("DOMContentLoaded", function(p) {
-    
-    fetch(CART_BUY)           //api for the get request
-    .then(response => response.json())
-    .then(data => console.log(data));
+
+    getJSONData(CART_BUY).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            articles = resultObj.data.articles
+            showCategoriesList(articles)
+            console.log(articles)
+        }   
     });
+});
 
+function showCategoriesList(){
 
-
-function showCart (){
-
-    // let { id, name, count, unitCost, currency, image } = data;
-
-    let addCart = "";
-    for (let cart of CART_BUY) {
-        
-    addCart += `
-    <tbody>
-        <tr>
-            <th scope="row">${cart.id}</th>
-            <td>${cart.name}</td>
-            <td>0</td>
-            <td>@mdo</td>
-         </tr>
-     </tbody>
-    `
-    }
-
-    bodyTable.innerHTML = addCart;
-    console.log(CART_BUY)
-
-};
-
-showCart();
+    for(let articles of CART_BUY){
+        document.getElementById("cart1").innerHTML = `<div class="container"
+        <p>${articles.id}</p>
+        <div>
+        `
+        document.getElementById("cart2").innerHTML = `
+        <p>${articles.name}</p>
+        `
+        }
+    };
+  
