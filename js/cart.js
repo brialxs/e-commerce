@@ -1,5 +1,11 @@
 const CART_BUY = CART_INFO_URL + "25801" + EXT_TYPE;
 const bodyTable = document.getElementById("bodyTable");
+const cart1 = document.getElementById("cart1");
+const cart2 = document.getElementById("cart2"); 
+const cart3 = document.getElementById("cart3");
+const cart4 = document.getElementById("cart4");
+const cart5 = document.getElementById("cart5");
+
 
 document.addEventListener("DOMContentLoaded", function(p) {
 
@@ -10,15 +16,13 @@ document.addEventListener("DOMContentLoaded", function(p) {
             console.log(pepe)
         }   
     });
+    subTotal();
 });
+
 
 function showCart(){
 
     for(let item of articles){
-        const cart1 = document.getElementById("cart1");
-        const cart2 = document.getElementById("cart2"); 
-        const cart3 = document.getElementById("cart3");
-        const cart4 = document.getElementById("cart4");
 
 
         cart1.innerHTML = `<div class="container">
@@ -32,12 +36,13 @@ function showCart(){
         <p>${item.currency} ${item.unitCost}</p>
         `
         cart4.innerHTML = `
-        <input oninput="${item.count}" type="number" value="${item.count}">
+        <input id="cantidad" oninput="${item.count}" type="number" value="${item.count}">
         `
         }
     };
-  
 
-    function subtotal() {
+    function subTotal() {
+        quantity = parseInt(document.getElementById("cantidad").value);
 
-    }
+        return quantity * item.unitCost
+    };
