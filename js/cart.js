@@ -1,10 +1,9 @@
 const CART_BUY = CART_INFO_URL + "25801" + EXT_TYPE;
-const bodyTable = document.getElementById("bodyTable");
 const cart1 = document.getElementById("cart1");
 const cart2 = document.getElementById("cart2"); 
 const cart3 = document.getElementById("cart3");
 const cart4 = document.getElementById("cart4");
-const cart5 = document.getElementById("cart5");
+const cart5 = document.getElementById("subtotal");
 
 
 document.addEventListener("DOMContentLoaded", function(p) {
@@ -13,10 +12,9 @@ document.addEventListener("DOMContentLoaded", function(p) {
         if (resultObj.status === "ok"){
             articles = resultObj.data.articles
             showCart(articles)
-            console.log(pepe)
+            console.log(articles)
         }   
     });
-    subTotal();
 });
 
 
@@ -33,16 +31,26 @@ function showCart(){
         <p>${item.name}</p>
         `
         cart3.innerHTML = `
-        <p>${item.currency} ${item.unitCost}</p>
+        <p>${item.currency} <span id="costtt">${item.unitCost}</span></p>
         `
         cart4.innerHTML = `
-        <input id="cantidad" oninput="${item.count}" type="number" value="${item.count}">
+        <input id="cantidad" oninput="${item.id}" type="number" value="${item.count}">
+        `
+        cart5.innerHTML = `
+        
         `
         }
     };
 
-    function subTotal() {
-        quantity = parseInt(document.getElementById("cantidad").value);
+   function calcSubTotal() {
+    let quantity = parseInt(document.getElementById("cantidad").value);
+    let cost = parseInt(document.getElementById("costtt").innerHTML);
+    let subtotal = document.getElementById("subtotal");
 
-        return quantity * item.unitCost
-    };
+    cart5.innerHTML = isNaN(quantity)
+    ? "0"
+    : (quantity*cost)
+
+    console.log(cost)
+
+   }
