@@ -24,33 +24,33 @@ function showCart(){
 
 
         cart1.innerHTML = `<div class="container">
-        <img class="img-responsive" src="${item.image}">
+        <img class="img-responsive" width="90" height="60" src="${item.image}">
         <div>
         `
         cart2.innerHTML = `
         <p>${item.name}</p>
         `
         cart3.innerHTML = `
-        <p>${item.currency} <span id="costtt">${item.unitCost}</span></p>
+        <p>${item.currency} <span id="cost">${item.unitCost}</span></p>
         `
         cart4.innerHTML = `
-        <input id="cantidad" oninput="${item.id}" type="number" value="${item.count}">
+        <input oninput="calcSubTotal()" min="0" id="cantidad" type="number" value="${item.count}">
         `
+
         cart5.innerHTML = `
-        
+        ${item.unitCost}
         `
         }
     };
 
    function calcSubTotal() {
-    let quantity = parseInt(document.getElementById("cantidad").value);
-    let cost = parseInt(document.getElementById("costtt").innerHTML);
-    let subtotal = document.getElementById("subtotal");
+    const quantity = document.getElementById("cantidad");
+    const cost = articles[0].unitCost;
 
-    cart5.innerHTML = isNaN(quantity)
-    ? "0"
-    : (quantity*cost)
-
-    console.log(cost)
-
+    cart5.innerHTML = (quantity.value * cost)
    }
+
+   calcSubTotal();
+
+
+
