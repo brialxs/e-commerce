@@ -61,7 +61,7 @@
       </table>
     </div>
 
-    <div class="row">
+    <div class="container">
       <h3 class="mb-3 m-s">Tipo de envio</h3>
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
@@ -78,7 +78,6 @@
               <label class="custom-control-label" for="standardradio">Standard 12 a 15 dias (5%)</label>
           </div>
         </div>
-    </div>
     </div>
     <div class="container mb-4 bg-light">
     <div class="row">
@@ -98,6 +97,98 @@
 <div class="col-md-6">
   <label for="cornerHome">Esquina</label>
   <input type="text" class="form-control" id="cornerHome" value="" name="cornerHome">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<div class="container">
+  <h3 class="mb-3 m-s">Costos</h3>
+  <div class="list-group-item list-group-item-action cursor-active"  >
+    <h5>Subtotal</h5>
+    <p>Costo unitario de producto por cantidad.</p>
+  </div>
+  <div class="list-group-item list-group-item-action cursor-active"  >
+    <h5>Costo de envío</h5>
+    <p>Según el tipo de envío</p>
+  </div>
+  <div class="list-group-item list-group-item-action cursor-active"  >
+    <h5>Total ($)</h5>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<div class="container">
+  <h3 class="mb-3 m-s">Forma de pago</h3>
+  
+  <!-- Button trigger modal -->
+<a class="row" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Seleccionar
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Forma de pago</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Tarjeta de crédito
+          </label>
+        </div>
+        <div class="container">
+          <hr>
+          <h5 for="textTarjet">Numero de tarjeta</h5> 
+          <input type="text" name="textTarjet" id="textTarjet"> 
+        </div>
+        <div class="container">
+          <h5 for="codSecurity">Cod de Seguridad</h5>
+          <input type="text" name="codSecurity" id="codSecurity">
+        </div>
+        <div class="container">
+          <h5 for="expirationDate">Vencimiento (MM/AA)</h5>
+          <input type="text" name="expirationDate" id="expirationDate">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <h5 class="form-check-label" for="flexRadioDefault2">
+            Transferencia bancaria
+          </label>
+        </div>
+        <hr>
+        <div class="container">
+          <h5 for="userNumber">Numero de cuenta</h5>
+          <input type="text" name="userNumber" id="userNumber">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-grid gap-2">
+  <button class="btn btn-primary" type="button">Finalizar compra</button>
+</div>
 </div>
   </main>
   <footer class="text-muted">
