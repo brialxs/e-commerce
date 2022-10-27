@@ -4,6 +4,11 @@ const cart2 = document.getElementById("cart2");
 const cart3 = document.getElementById("cart3");
 const cart4 = document.getElementById("cart4");
 const cart5 = document.getElementById("subtotal");
+const sub_Total2 = document.getElementById("subTotal2");
+const premium = document.getElementById("goldradio");
+const express = document.getElementById("premiumradio");
+const standard = document.getElementById("standardradio");
+let articles = [];
 
 
 document.addEventListener("DOMContentLoaded", function(p) {
@@ -15,7 +20,9 @@ document.addEventListener("DOMContentLoaded", function(p) {
             console.log(articles)
         }   
     });
+    calcSubTotal();
 });
+
 
 
 function showCart(){
@@ -40,6 +47,10 @@ function showCart(){
         cart5.innerHTML = `
         ${item.unitCost}
         `
+
+        sub_Total2.innerHTML += `
+        <p><strong>${item.currency}</strong> ` + ` ${item.unitCost}</p>
+        `
         }
     };
 
@@ -48,9 +59,19 @@ function showCart(){
     const cost = articles[0].unitCost;
 
     cart5.innerHTML = (quantity.value * cost)
-   }
+    sub_Total2.innerHTML = (quantity.value * cost)
 
-   calcSubTotal();
+    return quantity.value * cost
+   };
 
+   premium.addEventListener("click", function(){
+    document.getElementById("sendCost").innerHTML = (calcSubTotal() * 0.15);
+   });
 
+   express.addEventListener("click", function(){
+    document.getElementById("sendCost").innerHTML = (calcSubTotal() * 0.07);
+   });
 
+   standard.addEventListener("click", function(){
+    document.getElementById("sendCost").innerHTML = (calcSubTotal() * 0.05);
+   });

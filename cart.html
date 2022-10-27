@@ -107,15 +107,17 @@
 <br>
 <br>
 <br>
-<div class="container">
-  <h3 class="mb-3 m-s">Costos</h3>
-  <div class="list-group-item list-group-item-action cursor-active"  >
-    <h5>Subtotal</h5>
-    <p>Costo unitario de producto por cantidad.</p>
-  </div>
+<div class="container"></div>
+    <h3 class="mb-3 m-s">Costos</h3>
+    <div class="list-group-item list-group-item-action cursor-active"  >
+      <h5>Subtotal</h5>
+      <p>Costo unitario de producto por cantidad.</p>
+      <div id="subTotal2"></div>
+    </div>
   <div class="list-group-item list-group-item-action cursor-active"  >
     <h5>Costo de envío</h5>
     <p>Según el tipo de envío</p>
+    <div id="sendCost"></div>
   </div>
   <div class="list-group-item list-group-item-action cursor-active"  >
     <h5>Total ($)</h5>
@@ -135,9 +137,9 @@
   <h3 class="mb-3 m-s">Forma de pago</h3>
   
   <!-- Button trigger modal -->
-<a class="row" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button class="btn btn-link ps-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Seleccionar
-</a>
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
