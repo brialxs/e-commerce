@@ -36,6 +36,8 @@
     </div>
   </nav>
   <main>
+
+<form action="#" method="get" class="container needs-validation" name="form1" novalidate>
     <div class="container">
       <table class="table" id="bodyTable">
         <thead>
@@ -65,38 +67,46 @@
       <h3 class="mb-3 m-s">Tipo de envio</h3>
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
-              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked=""
-                required="">
-              <label class="custom-control-label" for="goldradio">Premium 2 a 5 dias (15%)</label>
+              <input id="goldradio" name="publicationType" type="radio" class="check-input" required>
+              <label class="check-label" for="goldradio">Premium 2 a 5 dias (15%)</label>
           </div>
           <div class="custom-control custom-radio">
-              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
-              <label class="custom-control-label" for="premiumradio">Express 5 a 8 dias (7%)</label>
+              <input id="premiumradio" name="publicationType" type="radio" class="check-input" required>
+              <label class="check-label" for="premiumradio">Express 5 a 8 dias (7%)</label>
           </div>
           <div class="custom-control custom-radio">
-              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
-              <label class="custom-control-label" for="standardradio">Standard 12 a 15 dias (5%)</label>
+              <input id="standardradio" name="publicationType" type="radio" class="check-input" required>
+              <label class="check-label" for="standardradio">Standard 12 a 15 dias (5%)</label>
           </div>
+        </div>
+        <div class="invalid-feedback">
+          Seleccione tipo de envio
         </div>
     </div>
     <div class="container mb-4 bg-light">
     <div class="row">
       <h3 class="mb-4 mt-4">Direccion de envio</h3>
       <div class="col-md-6">
-        <label for="streetHome">Calle</label>
-        <input type="text" class="form-control" id="streetHome" value="" name="streetHome">
+        <label class="form-label" for="streetHome">Calle</label>
+        <input type="text" class="form-control" id="streetHome" value="" name="streetHome" required>
         <div class="invalid-feedback">
           Ingresa una calle
         </div>
       </div>
       <div class="col-md-6">
-        <label for="numberHome">Numero</label>
-        <input type="text" class="form-control" id="numberHome" value="" name="numberHome">
+        <label class="form-label" for="numberHome">Numero</label>
+        <input type="text" class="form-control" id="numberHome" value="" name="numberHome" required>
+        <div class="invalid-feedback">
+          Ingresa un numero
+        </div>
       </div>
 
 <div class="col-md-6">
-  <label for="cornerHome">Esquina</label>
-  <input type="text" class="form-control" id="cornerHome" value="" name="cornerHome">
+  <label class="form-label" for="cornerHome">Esquina</label>
+  <input type="text" class="form-control" id="cornerHome" value="" name="cornerHome" required>
+  <div class="invalid-feedback">
+    Ingresa una esquina
+  </div>
 </div>
 <br>
 <br>
@@ -112,7 +122,7 @@
     <div class="list-group-item list-group-item-action cursor-active"  >
       <h5>Subtotal</h5>
       <p>Costo unitario de producto por cantidad.</p>
-      <div id="subTotal2"></div>
+      <p id="subTotal2"></p>
     </div>
   <div class="list-group-item list-group-item-action cursor-active"  >
     <h5>Costo de envío</h5>
@@ -121,6 +131,7 @@
   </div>
   <div class="list-group-item list-group-item-action cursor-active"  >
     <h5>Total ($)</h5>
+    <div id="total"></div>
   </div>
 </div>
 
@@ -137,9 +148,15 @@
   <h3 class="mb-3 m-s">Forma de pago</h3>
   
   <!-- Button trigger modal -->
-<button class="btn btn-link ps-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Seleccionar
-</button>
+  <div class="col-sm-12">
+    <table>
+    <td class="col-4"><p id="target">No ha seleccionado</p><button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+      data-bs-target="#exampleModal" id="terminos1" >Seleccionar</button></td>
+    <td class="col-6" style="color: red;"  id="aviso1"></td>
+    </table>
+    <div id="target2" style="color : red"></div>
+  </div>
+  
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,47 +168,50 @@
       </div>
       <div class="modal-body">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
+          <input class="check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required value="1">
+          <label class="check-label" for="flexRadioDefault1" id="creditCard">
             Tarjeta de crédito
           </label>
         </div>
         <div class="container">
           <hr>
-          <h5 for="textTarjet">Numero de tarjeta</h5> 
-          <input type="text" name="textTarjet" id="textTarjet"> 
+          <label class="form-label" for="textTarjet">Numero de tarjeta</label> 
+          <input class="form-control" type="text" name="textTarjet" id="textTarjet" required> 
         </div>
         <div class="container">
-          <h5 for="codSecurity">Cod de Seguridad</h5>
-          <input type="text" name="codSecurity" id="codSecurity">
+          <label class="form-label" for="codSecurity">Cod de Seguridad</label>
+          <input class="form-control" type="text" name="codSecurity" id="codSecurity" required>
         </div>
         <div class="container">
-          <h5 for="expirationDate">Vencimiento (MM/AA)</h5>
-          <input type="text" name="expirationDate" id="expirationDate">
+          <label class="form-label" for="expirationDate">Vencimiento (MM/AA)</label>
+          <input class="form-control" type="text" name="expirationDate" id="expirationDate" required>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <h5 class="form-check-label" for="flexRadioDefault2">
+          <input class="check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required value="2">
+          <label class="check-label" for="flexRadioDefault2" id="bank">
             Transferencia bancaria
           </label>
         </div>
         <hr>
         <div class="container">
-          <h5 for="userNumber">Numero de cuenta</h5>
-          <input type="text" name="userNumber" id="userNumber">
+          <label class="form-label" for="userNumber">Numero de cuenta</label>
+          <input class="form-control" type="text" name="userNumber" id="userNumber" required>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" id="saveChanges">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 <div class="d-grid gap-2">
-  <button class="btn btn-primary" type="button">Finalizar compra</button>
+  <button class="btn btn-primary" type="submit" id="endButton">Finalizar compra</button>
 </div>
+<div class="success"></div>
 </div>
+</form>
+
   </main>
   <footer class="text-muted">
     <div class="container">
