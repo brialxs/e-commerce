@@ -53,11 +53,11 @@ function showCart(){
         `
 
         cart5.innerHTML = `
-        ${item.unitCost}
+        <strong> USD ` + ` ${item.unitCost}</strong>
         `
 
         sub_Total2.innerHTML = `
-        <div class="d-flex flex-row-reverse bd-highlight"><p>${item.unitCost}</p> ` + ` <p>${item.currency}</p></div>
+        <div> USD ` + ` ${item.unitCost} </div>
         `
         }
     };
@@ -66,36 +66,36 @@ function showCart(){
     const quantity = document.getElementById("cantidad");
     const cost = articles[0].unitCost;
 
-    cart5.innerHTML = parseInt(quantity.value * cost)
-    sub_Total2.innerHTML = parseInt(quantity.value * cost)
+    cart5.innerHTML = `<strong>USD ` + ` ${parseInt(quantity.value * cost)} </strong>`
+    sub_Total2.innerHTML =`USD ` + ` ${parseInt(quantity.value * cost)} `
 
     return quantity.value * cost
    };
 
    premium.addEventListener("click", function(){
     costSend.innerHTML = parseInt(calcSubTotal() * 0.15);
-    total.innerHTML = calcSubTotal() + parseInt(costSend.textContent)
+    total.innerHTML = `<strong>USD ` + ` ${calcSubTotal() + parseInt(costSend.textContent)} </strong>`;
     calcTotal()
     return parseInt(calcSubTotal() * 0.15)
    });
 
    express.addEventListener("click", function(){
     costSend.innerHTML = parseInt(calcSubTotal() * 0.07);
-    total.innerHTML = calcSubTotal() + parseInt(costSend.textContent)
+    total.innerHTML = `<strong>USD ` + ` ${calcSubTotal() + parseInt(costSend.textContent)} </strong>`;
     calcTotal()
     return parseInt(calcSubTotal() * 0.07)
    });
 
    standard.addEventListener("click", function(){
     costSend.innerHTML = parseInt(calcSubTotal() * 0.05);
-    total.innerHTML = calcSubTotal() + parseInt(costSend.textContent)
+    total.innerHTML = `<strong>USD ` + ` ${calcSubTotal() + parseInt(costSend.textContent)} `;
     calcTotal()
     return parseInt(calcSubTotal() * 0.05)
    });
 
    function calcTotal() {
         cantidad.addEventListener("click", function(){
-            total.innerHTML = calcSubTotal() + parseInt(costSend.textContent)
+            total.innerHTML = `<strong>USD ` + ` ${calcSubTotal() + parseInt(costSend.textContent)} </strong>`
             return calcSubTotal() + parseInt(costSend.textContent)
         })
    };
@@ -143,15 +143,13 @@ function showCart(){
   selectFormToPay();
 
   document.getElementById("endButton").addEventListener("click", function(){
-    if(validateForm === ok){
-        document.getElementById("success").innerHTML = `
-        <div class="valid-feedback alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        success.innerHTML = `
+        <div class="alert alert-success" role="alert">
+        ¡Has comprado con éxito!
         </div>
         `
       }
-  });
+  );
 
 
   
