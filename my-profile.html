@@ -44,18 +44,58 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="Usuario">
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
+   <form action="#" method="get" class="container needs-validation" name="form1" novalidate> 
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <br>
+      <br>
+      <h1>Perfil</h1>
+      <br>
+      <br>
+      <hr>
+      <div class="container">
+      <div class="row row-cols-2">
+          <div class="col p-1">
+            <label class="form-label" for="firstName">Primer nombre*</label>
+            <input class="form-control" type="text" name="firstName" id="firstName" required>
+          </div>
+          <div class="col p-1">
+            <label class="form-label" for="secondName">Segundo nombre</label>
+            <input class="form-control" type="text" name="secondName" id="secondName">
+          </div>
+          <div class="col p-1">
+              <label class="form-label" for="firstSurname">Primer apellido*</label>
+              <input class="form-control" type="text" name="firstSurname" id="firstSurname" required>
+          </div>
+          <div class="col p-1">
+              <label class="form-label" for="secondSurname">Segundo apellido</label>
+              <input class="form-control" type="text" name="secondSurname" id="secondSurname">
+          </div>
+          <div class="col p-1">
+            <label class="form-label" for="email">E-mail</label>
+            <input class="form-control" type="text" name="email" id="email">
+          </div>
+          <div class="col p-1">
+            <label class="form-label" for="telContact">Telefono de contacto*</label>
+            <input class="form-control" type="text" name="telContact" id="telContact" required>
+          </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <div class="container">
+          <button class="btn btn-primary" type="submit" id="save_Changes">Guardar cambios</button>
+        </div>
       </div>
     </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
